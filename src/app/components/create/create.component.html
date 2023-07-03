@@ -1,0 +1,18 @@
+<form [formGroup]="itemFormCreate" (submit)="createItem()">
+    <div class="img">
+        <img src="../../../assets/attachments/5.png" alt="Default">
+    </div>
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" formControlName="title">   
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description"></textarea>
+    </div>
+    <div>
+        <label for="detail">Details:</label>
+        <textarea id="detail" formControlName="detail"></textarea>
+    </div>
+    <button type="submit" [disabled]="!itemFormCreate.valid">Create</button>
+</form>

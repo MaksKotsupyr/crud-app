@@ -1,0 +1,38 @@
+<div class="my-table-buttons">
+  <button mat-raised-button color="primary" (click)="createItem()">Create</button>
+  <button mat-raised-button color="warn" (click)="loginLogout()">
+    {{isAuth ? 'Log Out' : 'Log in'}}
+  </button>
+</div>
+<table mat-table [dataSource]="listItems" class="my-table">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let item; let i = index">{{ i+1 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let item">{{ item.title }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let item">{{ item.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let item; let i = index" class="actions">
+      <button mat-raised-button color="primary" [disabled]="!isAuth" (click)="editItem(item, i)">
+        {{isAuth ? 'Edit' : 'Log in first!'}}
+      </button>
+      <button mat-raised-button color="warn" *ngIf="isAuth" (click)="deleteItem(item, i)">Delete</button>
+      <button mat-raised-button color="accent" *ngIf="isAuth" (click)="showDetail(item, i)">Detail</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['id', 'title', 'description', 'action']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id', 'title', 'description', 'action'];"></tr>
+
+</table>

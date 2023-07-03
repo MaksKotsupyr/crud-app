@@ -1,0 +1,8 @@
+<div class="item-details" *ngFor="let item of item">
+    <img *ngIf="item.img" [src]="item.img" alt="{{ item.title }}"> 
+    <img *ngIf="!item.img" src="../../../assets/attachments/5.png" alt="Default"> 
+    <h2>{{ item.title }}</h2>
+    <hr>
+    <p>{{ item.description }}</p>
+    <p>{{ item.detail }}</p>
+  </div>

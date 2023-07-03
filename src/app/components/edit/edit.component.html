@@ -1,0 +1,20 @@
+<form [formGroup]="itemForm" (submit)="editItem()">
+    <div *ngFor="let prop of item" class="img">
+        <img *ngIf="prop.img" [src]="prop.img" alt="{{prop.title}}">
+        <img *ngIf="!prop.img" src="../../../assets/attachments/5.png" alt="Default">
+    </div>
+    <div>
+        <label for="title">Title: <span class="custom-error" *ngIf="validInput"> Enter only letters!</span> </label>
+        <input type="text" id="title" formControlName="title" (mouseleave)="onInput(this.itemForm.value.title)">
+        
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description"></textarea>
+    </div>
+    <div>
+        <label for="detail">Details:</label>
+        <textarea id="detail" formControlName="detail"></textarea>
+    </div>
+    <button type="submit" [disabled]="!itemForm.valid">Edit</button>
+</form>

@@ -1,0 +1,22 @@
+<div class="card-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label class="label">Email</label>
+            <input matInput type="email" formControlName="email" placeholder='' />
+            <span *ngIf="loginForm.get('email')?.hasError('email')">
+                Invalid email format
+            </span>
+        </div>
+        <div>
+            <label class="label">Password</label>
+            <input matInput type="password" formControlName="password" />
+            <span *ngIf="loginForm.get('password')?.hasError('minlength')">
+                Invalid password length
+            </span>
+        </div>
+
+        <button mat-raised-button color="accent" type="submit" [disabled]="loginForm.invalid">
+            Log in
+        </button>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+.my-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.my-table th,
+.my-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.my-table-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.actions {
+    display: flex;
+
+    button {
+        margin: 0 3px;
+    }
+}
